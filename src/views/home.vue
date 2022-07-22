@@ -51,12 +51,12 @@ const number = ref(0)
 const tweened = reactive({
     number: 0
 })
-watch(number, (n) => {
-    gsap.to(tweened, { duration: 0.5, number: Number(n) || 0 })
-})
-setInterval(()=>{
-    number.value += 10
-},500)
+// watch(number, (n) => {
+//     gsap.to(tweened, { duration: 0.5, number: Number(n) || 0 })
+// })
+// setInterval(()=>{
+//     number.value += 10
+// },500)
 
 const menus = [
     {

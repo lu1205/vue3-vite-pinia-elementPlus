@@ -1,5 +1,15 @@
 <template>
     <div class="container">
+        <div class="top_area">
+            <view class="item">
+                <view class="item_label">经度：</view>
+                <el-input v-model="lng" placeholder=""/>
+            </view>
+            <view class="item">
+                <view class="item_label">纬度：</view>
+                <el-input v-model="lat" placeholder=""/>
+            </view>
+        </div>
         <div id="mapContainer"></div>
         <div class="btn_box">
             <el-button @click="showMarkerPoint" type="primary">显示标记点</el-button>
@@ -9,7 +19,6 @@
 </template>
 
 <script lang="ts" setup>
-import {shallowRef} from '@vue/reactivity'
 import AMapLoader from '@amap/amap-jsapi-loader';
 import {onMounted, reactive, ref} from "vue";
 import pointIcon from '../../../static/img/point_icon.png';
@@ -37,8 +46,11 @@ const markerList: Array<any> = [
     },
 ]
 const markerPoint: Array<any> = []
+const marker = ref(null)
+const lng = ref<number>()
+const lat = ref<number>()
 
-const map = shallowRef(null);
+const map = ref(null);
 const initMap = (): void => {
     AMapLoader.load({
         key: '9360a439c5ab54cf94c920110fd77d1c',
@@ -50,10 +62,29 @@ const initMap = (): void => {
             zoom: 12,           //初始化地图级别
             center: [117.130896, 31.849721], //初始化地图中心点位置
         });
+        map.value.on('click', (data: any) => {
+            console.log(data)
+            lng.value = data.lnglat.lng
+            lat.value = data.lnglat.lat
+            markOnePoint(lng.value, lat.value)
+        })
     }).catch(e => {
         console.log(e);
     })
 }
+
+const markOnePoint = (lng: number, lat: number): void => {
+    if (marker.value) {
+        map.value.remove(marker.value)
+    }
+    marker.value = new AMap.Marker({
+        position: new AMap.LngLat(lng, lat),
+        icon: 'https://a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png',
+        offset: new AMap.Pixel(-18, -70),
+    })
+    map.value.add(marker.value);
+}
+
 const showMarkerPoint = (): void => {
     markerPoint.value = markerList.map((item) => {
         let list = [
@@ -109,6 +140,23 @@ onMounted(() => {
     height: 100%;
 }
 
+.top_area {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    box-sizing: border-box;
+
+    .item {
+        display: flex;
+        align-items: center;
+        margin-left: 16px;
+
+        .item_label {
+            width: 100px;
+        }
+    }
+}
+
 #mapContainer {
     width: 100%;
     height: 100%;
@@ -119,8 +167,9 @@ onMounted(() => {
     bottom: 5%;
     right: 5%;
 }
+
 ::v-deep .point-box {
-    width: 200px!important;
+    width: 200px !important;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -130,6 +179,7 @@ onMounted(() => {
         width: 100%;
         text-align: center;
     }
+
     .point-icon {
         width: 20px;
         height: 20px;

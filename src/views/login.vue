@@ -14,6 +14,7 @@
                                         <el-button v-loading.fullscreen.lock="fullscreenLoading" type="info" @click="submitFormData">登录</el-button>
 <!--                    <el-button type="info" @click="handleThrottle">登录</el-button>-->
                     <el-button type="info" @click="registerUser">注册</el-button>
+<!--                    <n-button type="primary" @click="registerUser">注册</n-button>-->
 <!--                    <van-button type="primary">主要按钮</van-button>-->
                 </div>
             </div>
