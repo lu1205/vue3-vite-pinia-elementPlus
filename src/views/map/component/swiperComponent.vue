@@ -11,6 +11,7 @@
 <script>
 import {swiper, swiperSlide} from "vue-awesome-swiper";
 import "swiper/dist/css/swiper.css";
+
 export default {
     name: "swiperComponent",
     props: ['list'],
@@ -27,7 +28,7 @@ export default {
                 slidesPerView: 1,
                 on: {
                     click: function (e) {
-                        if(this.clickedIndex !== undefined){
+                        if (this.clickedIndex !== undefined) {
                             // vm.$emit("eventDetails", vm.data[this.clickedIndex].id, vm.data[this.clickedIndex].longitude, vm.data[this.clickedIndex].latitude)
                         }
                     }
@@ -45,28 +46,29 @@ export default {
     mounted() {
 
     },
-    methods: {
-
-    }
+    methods: {}
 }
 </script>
 
 <style scoped lang="less">
 
 /deep/ .container {
-    width: 264px!important;
-    height: 148px!important;
+    width: 264px !important;
+    height: 148px !important;
 }
+
 /deep/ .swiperBox {
-    width: 264px!important;
-    height: 148px!important;
+    width: 264px !important;
+    height: 148px !important;
 }
+
 /deep/ .swiperUnit {
-    width: 264px!important;
-    height: 148px!important;
+    width: 264px !important;
+    height: 148px !important;
 }
+
 /deep/ .swiper-img {
-    width: 264px!important;
-    height: 148px!important;
+    width: 264px !important;
+    height: 148px !important;
 }
 </style>
