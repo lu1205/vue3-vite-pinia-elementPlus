@@ -11,11 +11,12 @@
                     </el-form-item>
                 </el-form>
                 <div class="btn_box">
-                                        <el-button v-loading.fullscreen.lock="fullscreenLoading" type="info" @click="submitFormData">登录</el-button>
-<!--                    <el-button type="info" @click="handleThrottle">登录</el-button>-->
+                    <el-button v-loading.fullscreen.lock="fullscreenLoading" type="info" @click="submitFormData">登录
+                    </el-button>
+                    <!--                    <el-button type="info" @click="handleThrottle">登录</el-button>-->
                     <el-button type="info" @click="registerUser">注册</el-button>
-<!--                    <n-button type="primary" @click="registerUser">注册</n-button>-->
-<!--                    <van-button type="primary">主要按钮</van-button>-->
+                    <!--                    <n-button type="primary" @click="registerUser">注册</n-button>-->
+                    <!--                    <van-button type="primary">主要按钮</van-button>-->
                 </div>
             </div>
         </div>
@@ -29,7 +30,7 @@ import {ElMessage, ElLoading} from 'element-plus'
 import {userStore} from "../stores/useStore";
 import {throttle} from "../utils/common";
 import _ from "lodash"
-import { Button } from 'vant';
+import {Button} from 'vant';
 
 export default {
     name: "index",
