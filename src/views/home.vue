@@ -3,7 +3,7 @@
         <div class="header">
             <div class="header_title">
                 系统{{ tweened.number.toFixed(0) }}
-<!--                <input v-model.number="number" />-->
+                <!--                <input v-model.number="number" />-->
             </div>
             <div @click="exit" class="exit_btn">退出登录</div>
         </div>
@@ -45,8 +45,9 @@
 import {userStore} from "../stores/useStore";
 import {useRouter} from 'vue-router'
 import {ElMessage} from "element-plus";
-import {ref,reactive,watch} from 'vue'
+import {ref, reactive, watch} from 'vue'
 import gsap from 'gsap';
+
 const number = ref(0)
 const tweened = reactive({
     number: 0
