@@ -18,7 +18,7 @@
                     <el-sub-menu
                         v-for="(item, index) in menus"
                         :key="index"
-                        :index="index">
+                        :index="index+''">
                         <template #title>
                             <span>{{ item.fullName }}</span>
                         </template>
@@ -62,34 +62,34 @@ const tweened = reactive({
 const menus = [
     {
         "id": 1,
-        "fullName": "粤菜",
+        "fullName": "菜单一",
         "path": "",
         "children": [
             {
                 "id": 11,
-                "fullName": "白切鸡",
+                "fullName": "naive-ui",
                 "path": "/guangdongCuisine/plainChicken",
             },
             {
                 "id": 12,
-                "fullName": "烤乳猪",
+                "fullName": "element-ui",
                 "path": "/guangdongCuisine/roastSucklingPig",
             },
         ]
     },
     {
         "id": 2,
-        "fullName": "徽菜",
+        "fullName": "菜单二",
         "path": "",
         "children": [
             {
                 "id": 21,
-                "fullName": "符离集烧鸡",
+                "fullName": "子菜单一",
                 "path": "/anhuiCuisine/fulijiRoastChicken",
             },
             {
                 "id": 22,
-                "fullName": "臭鳜鱼",
+                "fullName": "子菜单二",
                 "path": "/anhuiCuisine/smellyMandarinFish",
             },
         ]

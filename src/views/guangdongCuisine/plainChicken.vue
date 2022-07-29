@@ -1,5 +1,4 @@
 <template>
-    <div>白切鸡</div>
     <div class="formData">
         <n-form ref="formRef" label-placement="left" :model="formData" :rules="rules" :label-width="140">
             <n-form-item label="姓名" path="name">
